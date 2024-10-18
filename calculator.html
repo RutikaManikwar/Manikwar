@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .calculator input[type="text"], .calculator button {
+            margin: 5px;
+            padding: 8px;
+        }
+
+        .calculator button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            width: 100px; /* Set a fixed width for all buttons */
+            height: 40px; /* Set a fixed height for all buttons */
+        }
+
+        .calculator button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculator</h2>
+        <input type="text" id="num1" placeholder="Enter number">
+        <input type="text" id="num2" placeholder="Enter number"><br>
+        <button onclick="calculate('+')">Add</button>
+        <button onclick="calculate('-')">Subtract</button><br>
+        <button onclick="calculate('*')">Multiply</button>
+        <button onclick="calculate('/')">Divide</button>
+    </div>
+
+    <script>
+        // Function to perform addition
+        function add(x, y) {
+            return x + y;
+        }
+
+        // Function to perform subtraction
+        function subtract(x, y) {
+            return x - y;
+        }
+
+        // Function to perform multiplication
+        function multiply(x, y) {
+            return x * y;
+        }
+
+        // Function to perform division
+        function divide(x, y) {
+            if (y === 0) {
+                return "Error: Division by zero";
+            }
+            return x / y;
+        }
+
+        // Function to calculate based on operator
+        function calculate(operator) {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = add(num1, num2);
+                    alert(`Result of Addition: ${result}`);
+                    break;
+                case '-':
+                    result = subtract(num1, num2);
+                    alert(`Result of Subtraction: ${result}`);
+                    break;
+                case '*':
+                    result = multiply(num1, num2);
+                    alert(`Result of Multiplication: ${result}`);
+                    break;
+                case '/':
+                    result = divide(num1, num2);
+                    alert(`Result of Division: ${result}`);
+                    break;
+                default:
+                    alert("Error: Invalid operator");
+            }
+        }
+    </script>
+</body>
+</html>
